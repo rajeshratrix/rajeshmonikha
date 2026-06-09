@@ -17,8 +17,8 @@
     --shadow: rgba(105,73,54,0.14);
   }
   *, *::before, *::after { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; min-height: 100%; overflow: hidden; }
-  body.opened { overflow-y: auto; }
+  html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; }
+  body.opened { overflow-y: scroll; height: auto; }
   body { font-family: system-ui, sans-serif; background: var(--background); color: var(--text); }
 
   .scene-bg {
@@ -182,15 +182,15 @@
 
   .gallery {
     width: 100vw;
-    min-height: 100vh;
-    display: grid;
-    scroll-snap-type: y mandatory;
-    overflow-x: hidden;
-    overflow-y: auto;
+    display: block;
     opacity: 0;
     transition: opacity 0.8s ease 0.1s;
+    pointer-events: none;
   }
-  body.opened .gallery { opacity: 1; }
+  body.opened .gallery { 
+    opacity: 1;
+    pointer-events: auto;
+  }
   .slide {
     position: relative;
     min-height: 100vh;
@@ -200,6 +200,9 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-color: rgba(255,255,255,0.82);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .slide::before {
     content: "";
@@ -348,7 +351,7 @@
     const openBtn = document.getElementById('openBtn');
     const sceneBg = document.getElementById('sceneBg');
     const slides = document.querySelectorAll('.slide');
-    const landingBg = 'uploads/Cream and Pink Minimalist Wedding Invitation Instagram Post.png';
+    const landingBg = 'uploads/landing_page.png';
 
     const setSceneBg = (url) => {
       sceneBg.style.backgroundImage = url ? `url('${url}')` : 'none';
