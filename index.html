@@ -320,7 +320,6 @@
       });
     }, { threshold: 0.55 });
 
-    slides.forEach(slide => observer.observe(slide));
     setSceneBg(landingBg);
 
     openBtn.addEventListener('click', () => {
@@ -328,6 +327,7 @@
       envelope.classList.add('closed');
       body.classList.add('opened');
       setTimeout(() => envelope.remove(), 900);
+      slides.forEach(slide => observer.observe(slide));
       setSceneBg(slides[0]?.dataset.bg);
     });
   </script>
