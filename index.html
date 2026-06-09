@@ -25,13 +25,19 @@
     position: fixed;
     inset: 0;
     z-index: -1;
-    background-size: cover;
+    background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
+    background-color: var(--background);
+    filter: blur(6px) saturate(1.1) brightness(1.08);
+    transform: scale(1.02);
+    opacity: 1;
+    transition: background-image 0.6s ease, opacity 0.4s ease, filter 0.6s ease;
+  }
+  body.opened .scene-bg {
+    background-size: cover;
     filter: blur(42px) saturate(1.1) brightness(1.08);
-    transform: scale(1.08);
-    opacity: 0.95;
-    transition: background-image 0.6s ease, opacity 0.4s ease;
+    opacity: 0.64;
   }
   .scene-bg::after {
     content: "";
@@ -44,9 +50,7 @@
     background: radial-gradient(circle at top center, rgba(255,255,255,0.75), transparent 30%), linear-gradient(180deg, rgba(248,238,229,0.75), rgba(247,237,227,0.92));
   }
 
-  body.opened .scene-bg {
-    opacity: 0.64;
-  }
+
 
   .envelope {
     position: fixed;
