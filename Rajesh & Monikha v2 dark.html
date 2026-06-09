@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Rajesh & Monikha · July 4–5, 2026</title>
+<meta name="description" content="The wedding of Rajesh & Monikha — Saturday 4 and Sunday 5 July, 2026 — Sri Krishna Grand Mahal, Chidambaram." />
+<meta property="og:title" content="Rajesh & Monikha — Wedding Invitation" />
+<meta property="og:description" content="Join us in Chidambaram on the 4th & 5th of July, 2026." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Manrope:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --bg: oklch(17% 0.008 60);
+    --bg-2: oklch(13% 0.006 60);
+    --panel: oklch(20% 0.008 60);
+
+    --ink: oklch(96% 0.012 85);
+    --ink-soft: oklch(80% 0.012 75);
+    --ink-mute: oklch(62% 0.012 75);
+
+    --accent: oklch(82% 0.082 78);     /* champagne gold */
+    --accent-deep: oklch(72% 0.09 70);
+
+    --line: oklch(100% 0 0 / 0.16);
+    --line-soft: oklch(100% 0 0 / 0.09);
+
+    --display: "Cormorant Garamond", "Times New Roman", serif;
+    --sans: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+    --maxw: 1180px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--bg);
+    font-weight: 400;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  /* lock scroll while the cover is closed */
+  body.gated { overflow: hidden; height: 100vh; }
+
+  ::selection { background: var(--accent); color: var(--bg-2); }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 36px; }
+  @media (max-width: 560px) { .wrap { padding: 0 22px; } }
+
+  .amp { color: var(--accent); font-style: italic; }
+
+  /* ============================================================
+     INVITATION COVER (the "gate")
+     ============================================================ */
+  .cover {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    overflow: hidden;
+    transition: transform 1.15s cubic-bezier(0.76, 0, 0.24, 1),
+                opacity 0.6s ease 0.55s;
+  }
+  .cover-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url("images/story-photo.jpg");
+    background-size: cover;
+    background-position: center 28%;
+    filter: grayscale(1) contrast(1.04) brightness(0.62);
+    transform: scale(1.06);
+    transition: transform 1.4s ease;
+  }
+  .cover::after {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(120% 90% at 50% 36%, transparent 0%, oklch(8% 0.006 60 / 0.55) 70%, oklch(6% 0.006 60 / 0.85) 100%),
+      linear-gradient(to bottom, oklch(8% 0.006 60 / 0.45), oklch(8% 0.006 60 / 0.5));
+  }
+  .cover-inner {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+  }
+  .cover-frame {
+    position: absolute;
+    inset: 24px;
+    border: 1px solid var(--line);
+    z-index: 1;
+    pointer-events: none;
+  }
+  .cover-frame::before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border: 1px solid var(--line-soft);
+  }
+  @media (max-width: 560px) {
+    .cover-frame { inset: 14px; }
+  }
+
+  .cover-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    color: var(--accent);
+    margin-bottom: 30px;
+    padding-left: 0.4em;
+  }
+  .cover-sub {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: clamp(16px, 2.6vw, 21px);
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+  }
+  .cover-names {
+    font-family: var(--display);
+    font-weight: 300;
+    font-size: clamp(38px, 6.4vw, 86px);
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+    margin: 6px 0;
+    color: var(--ink);
+    text-shadow: 0 2px 40px oklch(0% 0 0 / 0.5);
+  }
+  .cover-date {
+    font-family: var(--mono);
+    font-size: clamp(11px, 1.6vw, 13px);
+    text-transform: uppercase;
+    letter-spacing: 0.32em;
+    color: var(--ink-soft);
+    margin-top: 26px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .cover-date .hr { width: 30px; height: 1px; background: var(--line); }
+
+  .open-btn {
+    margin-top: 54px;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 38px;
+    background: var(--accent);
+    color: oklch(20% 0.02 70);
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    box-shadow: 0 14px 44px oklch(0% 0 0 / 0.45);
+  }
+  .open-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 56px oklch(0% 0 0 / 0.55);
+    background: oklch(86% 0.085 80);
+  }
+  .open-btn svg { width: 15px; height: 15px; }
+
+  /* entrance choreography — opacity stays 1 at rest (never gated on a transition finishing),
+     only a gentle upward slide animates in */
+  .cover-anim { transform: translateY(18px); opacity: 1; transition: transform 0.95s cubic-bezier(0.2,0.8,0.2,1); }
+  body.cover-ready .cover-anim { transform: none; }
+  .cover-eyebrow.cover-anim { transition-delay: 0.1s; }
+  .cover-sub.cover-anim     { transition-delay: 0.22s; }
+  .cover-names.cover-anim   { transition-delay: 0.34s; }
+  .cover-date.cover-anim    { transition-delay: 0.5s; }
+  .open-btn.cover-anim      { transition-delay: 0.66s; }
+
+  /* opened state */
+  body.opened .cover { transform: translateY(-102%); opacity: 0; pointer-events: none; }
+  body.opened .cover-bg { transform: scale(1.18); }
+
+  /* ============================================================
+     SHARED PANEL / BACKGROUND SYSTEM
+     ============================================================ */
+  .panel { position: relative; isolation: isolate; }
+  .panel-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(1) contrast(1.05);
+  }
+  .panel-bg.fixed { background-attachment: fixed; }
+  .panel-scrim {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+  .scrim-hero {
+    background:
+      linear-gradient(to bottom, oklch(8% 0.006 60 / 0.4) 0%, transparent 26%, transparent 52%, oklch(8% 0.006 60 / 0.85) 100%);
+  }
+  .scrim-dark {
+    background: linear-gradient(to bottom, oklch(10% 0.006 60 / 0.82), oklch(10% 0.006 60 / 0.9));
+  }
+  .scrim-side {
+    background: linear-gradient(105deg, oklch(8% 0.006 60 / 0.9) 0%, oklch(8% 0.006 60 / 0.66) 46%, oklch(8% 0.006 60 / 0.2) 100%);
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--accent);
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 26px; height: 1px;
+    background: var(--accent);
+  }
+
+  /* ============================================================
+     TOP BAR
+     ============================================================ */
+  .topbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 36px;
+    transition: background 0.4s ease, backdrop-filter 0.4s ease, padding 0.3s ease, border-color 0.4s ease;
+    border-bottom: 1px solid transparent;
+    transform: translateY(-100%);
+  }
+  body.opened .topbar { transform: translateY(0); transition: transform 0.7s ease 0.5s, background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease; }
+  .topbar.scrolled {
+    background: color-mix(in oklch, var(--bg) 78%, transparent);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom-color: var(--line-soft);
+    padding: 14px 36px;
+  }
+  @media (max-width: 560px) { .topbar, .topbar.scrolled { padding-left: 22px; padding-right: 22px; } }
+  .monogram {
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 23px;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+  }
+  .nav {
+    display: flex;
+    gap: 30px;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-soft);
+  }
+  .nav a { transition: color 0.2s ease; }
+  .nav a:hover { color: var(--accent); }
+  @media (max-width: 720px) { .nav { display: none; } }
+
+  /* ============================================================
+     HERO
+     ============================================================ */
+  .hero {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 120px 0 56px;
+  }
+  .hero .panel-bg {
+    background-image: url("images/g1.jpg");
+    background-position: center 24%;
+  }
+  .hero-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: var(--ink-soft);
+    margin-bottom: 26px;
+  }
+  .hero-names {
+    font-family: var(--display);
+    font-weight: 300;
+    font-size: clamp(64px, 15vw, 220px);
+    line-height: 0.88;
+    letter-spacing: -0.028em;
+    margin: 0;
+    text-shadow: 0 4px 60px oklch(0% 0 0 / 0.55);
+  }
+  .hero-names .r2 { display: block; padding-left: 0.6em; }
+  .hero-foot {
+    margin-top: 54px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+    max-width: 760px;
+  }
+  .hero-foot .k {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--ink-mute);
+    margin-bottom: 10px;
+  }
+  .hero-foot .v {
+    font-family: var(--display);
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 1.15;
+  }
+  .hero-foot .v small {
+    font-family: var(--sans);
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    display: block;
+    margin-top: 3px;
+  }
+  .scroll-cue {
+    position: absolute;
+    left: 50%;
+    bottom: 22px;
+    transform: translateX(-50%);
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .scroll-cue .stem { width: 1px; height: 40px; background: linear-gradient(var(--accent), transparent); animation: drop 2s ease-in-out infinite; }
+  @keyframes drop { 0%,100% { opacity: 0.3; transform: scaleY(0.6); transform-origin: top; } 50% { opacity: 1; transform: scaleY(1); } }
+  @media (max-width: 720px) {
+    .hero-foot { grid-template-columns: 1fr; gap: 18px; max-width: none; }
+    .hero-foot .v { font-size: 22px; }
+    .scroll-cue { display: none; }
+  }
+
+  /* ============================================================
+     COUNTDOWN
+     ============================================================ */
+  .countdown { background: var(--bg-2); border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); padding: 52px 0; }
+  .countdown-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 28px; }
+  .countdown-label { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.24em; color: var(--ink-mute); }
+  .countdown-blocks { display: flex; gap: 44px; }
+  .cb { text-align: center; }
+  .cb .n { font-family: var(--display); font-size: 58px; font-weight: 300; line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .cb .n .accent { color: var(--accent); }
+  .cb .l { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.22em; color: var(--ink-mute); margin-top: 8px; }
+  @media (max-width: 720px) {
+    .countdown-inner { justify-content: center; text-align: center; }
+    .countdown-blocks { width: 100%; justify-content: space-between; gap: 12px; }
+    .cb .n { font-size: 42px; }
+  }
+
+  /* ============================================================
+     SECTION HEAD
+     ============================================================ */
+  .section-head { display: grid; grid-template-columns: 200px 1fr; gap: 56px; margin-bottom: 72px; }
+  .section-head .tag { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.22em; color: var(--ink-mute); padding-top: 14px; }
+  .section-head .tag::before { content: ""; display: inline-block; width: 22px; height: 1px; background: var(--accent); vertical-align: middle; margin-right: 12px; }
+  .section-head h2 { font-family: var(--display); font-weight: 300; font-size: clamp(42px, 6.4vw, 80px); line-height: 1.03; letter-spacing: -0.018em; margin: 0; }
+  .section-head h2 em { font-style: italic; color: var(--accent); }
+  @media (max-width: 720px) {
+    .section-head { grid-template-columns: 1fr; gap: 14px; margin-bottom: 44px; }
+    .section-head .tag { padding-top: 0; }
+  }
+
+  /* ============================================================
+     CEREMONIES
+     ============================================================ */
+  .ceremonies { padding: 150px 0; }
+  .ceremonies .panel-bg { background-image: url("images/g2.jpg"); background-position: center 30%; }
+  .events { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .event {
+    background: oklch(16% 0.006 60 / 0.62);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--line);
+    padding: 44px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    position: relative;
+    transition: border-color 0.3s ease, transform 0.3s ease, background 0.3s ease;
+  }
+  .event:hover { border-color: var(--accent); transform: translateY(-4px); background: oklch(18% 0.008 60 / 0.7); }
+  .event-num { position: absolute; top: 22px; right: 30px; font-family: var(--mono); font-size: 11px; color: var(--ink-mute); letter-spacing: 0.16em; }
+  .event-date { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.22em; color: var(--accent); }
+  .event-name { font-family: var(--display); font-size: 46px; font-weight: 300; line-height: 1.04; letter-spacing: -0.01em; margin: 0; }
+  .event-name em { font-style: italic; }
+  .event-sub { font-size: 14px; color: var(--ink-soft); margin-top: -14px; }
+  .schedule { border-top: 1px solid var(--line); padding-top: 22px; display: flex; flex-direction: column; gap: 16px; }
+  .sched-row { display: grid; grid-template-columns: 116px 1fr; gap: 22px; align-items: baseline; }
+  .sched-row .t { font-family: var(--mono); font-size: 12px; color: var(--ink-mute); letter-spacing: 0.06em; }
+  .sched-row .d { font-family: var(--display); font-size: 22px; color: var(--ink); font-weight: 400; line-height: 1.2; }
+  .sched-row .d small { font-family: var(--sans); font-size: 12px; color: var(--ink-soft); display: block; margin-top: 2px; }
+  .cal-btn {
+    display: inline-flex; align-items: center; gap: 10px; align-self: flex-start;
+    font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em;
+    color: var(--ink-soft); padding: 12px 20px; border: 1px solid var(--line); border-radius: 999px;
+    cursor: pointer; background: transparent; transition: all 0.2s ease; margin-top: auto;
+  }
+  .cal-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .cal-btn svg { width: 12px; height: 12px; }
+  @media (max-width: 900px) {
+    .ceremonies { padding: 90px 0; }
+    .events { grid-template-columns: 1fr; }
+    .event { padding: 34px 26px; }
+    .event-name { font-size: 36px; }
+    .sched-row { grid-template-columns: 92px 1fr; gap: 16px; }
+  }
+
+  /* ============================================================
+     VENUE
+     ============================================================ */
+  .venue { padding: 150px 0; }
+  .venue .panel-bg { background-image: url("images/g4.jpg"); background-position: center 22%; }
+  .venue-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 70px; align-items: center; }
+  .venue-name { font-family: var(--display); font-size: clamp(44px, 6vw, 72px); font-weight: 300; line-height: 1; letter-spacing: -0.018em; margin: 22px 0 24px; }
+  .venue-addr { font-size: 16px; color: var(--ink-soft); line-height: 1.65; margin-bottom: 34px; max-width: 32ch; }
+  .venue-cta {
+    display: inline-flex; align-items: center; gap: 12px; padding: 16px 28px;
+    background: var(--accent); color: oklch(20% 0.02 70);
+    font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em;
+    border-radius: 999px; transition: all 0.2s ease;
+  }
+  .venue-cta:hover { transform: translateY(-2px); box-shadow: 0 14px 36px oklch(0% 0 0 / 0.5); }
+  .venue-cta svg { width: 14px; height: 14px; }
+  .venue-card {
+    aspect-ratio: 4 / 5;
+    border: 1px solid var(--line);
+    background: oklch(14% 0.006 60 / 0.5);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    position: relative; overflow: hidden;
+    background-image:
+      linear-gradient(var(--line-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size: 36px 36px;
+  }
+  .map-pin { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; }
+  .map-pin .dotwrap { width: 14px; height: 14px; margin: 0 auto 16px; position: relative; }
+  .map-pin .dotwrap::before { content: ""; position: absolute; inset: -10px; border-radius: 50%; background: var(--accent); opacity: 0.2; animation: pulse 2.4s ease-out infinite; }
+  .map-pin .dotwrap::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--bg-2); }
+  @keyframes pulse { 0% { transform: scale(0.6); opacity: 0.4; } 100% { transform: scale(2.6); opacity: 0; } }
+  .map-pin .label { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.22em; color: var(--ink-soft); }
+  .map-pin .label strong { display: block; font-family: var(--display); font-style: italic; font-weight: 400; color: var(--ink); font-size: 19px; letter-spacing: 0; text-transform: none; margin-top: 6px; }
+  @media (max-width: 900px) {
+    .venue { padding: 90px 0; }
+    .venue-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* ============================================================
+     GALLERY
+     ============================================================ */
+  .gallery-section { padding: 150px 0 130px; background: var(--bg-2); }
+  .gallery { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
+  .gallery .cell { overflow: hidden; }
+  .gallery img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.04); transition: transform 0.7s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; }
+  .gallery .cell:hover img { transform: scale(1.05); filter: grayscale(0) contrast(1.02); }
+  .g1 { grid-column: span 4; aspect-ratio: 4 / 3; }
+  .g2 { grid-column: span 2; aspect-ratio: 2 / 3; }
+  .g3 { grid-column: span 2; aspect-ratio: 1; }
+  .g4 { grid-column: span 2; aspect-ratio: 1; }
+  .g5 { grid-column: span 2; aspect-ratio: 1; }
+  @media (max-width: 720px) {
+    .gallery-section { padding: 90px 0; }
+    .gallery { grid-template-columns: repeat(2, 1fr); }
+    .g1, .g2, .g3, .g4, .g5 { grid-column: span 1; aspect-ratio: 1; }
+  }
+
+  /* ============================================================
+     RSVP
+     ============================================================ */
+  .rsvp { padding: 160px 0; text-align: center; }
+  .rsvp .panel-bg { background-image: url("images/g2.jpg"); background-position: center 18%; }
+  .rsvp .eyebrow { justify-content: center; margin-bottom: 28px; }
+  .rsvp h2 { font-family: var(--display); font-size: clamp(50px, 9vw, 104px); font-weight: 300; line-height: 1; letter-spacing: -0.02em; margin: 0 0 22px; text-shadow: 0 3px 50px oklch(0% 0 0 / 0.5); }
+  .rsvp h2 em { font-style: italic; color: var(--accent); }
+  .rsvp p { max-width: 46ch; margin: 0 auto 50px; font-size: 17px; line-height: 1.65; color: var(--ink-soft); }
+  .rsvp-btn {
+    display: inline-flex; align-items: center; gap: 14px; padding: 22px 42px;
+    background: var(--accent); color: oklch(20% 0.02 70);
+    font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.22em;
+    border-radius: 999px; transition: all 0.25s ease;
+    box-shadow: 0 16px 50px oklch(0% 0 0 / 0.45);
+  }
+  .rsvp-btn:hover { transform: translateY(-2px); box-shadow: 0 24px 64px oklch(0% 0 0 / 0.55); }
+  .rsvp-btn svg { width: 18px; height: 18px; }
+  .rsvp-num { font-family: var(--mono); font-size: 12px; color: var(--ink-mute); margin-top: 30px; letter-spacing: 0.06em; }
+  .rsvp-num a { color: var(--ink-soft); }
+  .rsvp-num a:hover { color: var(--accent); }
+  @media (max-width: 720px) { .rsvp { padding: 100px 0; } .rsvp-btn { padding: 18px 30px; font-size: 11px; } }
+
+  /* ============================================================
+     FOOTER
+     ============================================================ */
+  footer { padding: 64px 0; text-align: center; background: var(--bg-2); border-top: 1px solid var(--line-soft); }
+  .foot-mono { font-family: var(--display); font-style: italic; font-size: 30px; font-weight: 400; color: var(--ink); margin-bottom: 14px; }
+  .foot-line { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.22em; color: var(--ink-mute); }
+
+  /* reveal-on-scroll */
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.9s ease, transform 0.9s ease; }
+  .fade-up.in { opacity: 1; transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+    .cover-anim { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body class="gated">
+
+<!-- ===== INVITATION COVER ===== -->
+<div class="cover" id="cover" data-screen-label="Cover">
+  <div class="cover-bg"></div>
+  <div class="cover-frame"></div>
+  <div class="cover-inner">
+    <div class="cover-eyebrow cover-anim">You are invited</div>
+    <div class="cover-sub cover-anim">Together with their families</div>
+    <h1 class="cover-names cover-anim">Rajesh <span class="amp">&amp;</span> Monikha</h1>
+    <div class="cover-date cover-anim">
+      <span class="hr"></span>
+      04 &amp; 05 July 2026 · Chidambaram
+      <span class="hr"></span>
+    </div>
+    <button class="open-btn cover-anim" id="openBtn">
+      Open Invitation
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- ===== TOP BAR ===== -->
+<header class="topbar" id="topbar">
+  <div class="monogram">Rajesh <span class="amp">&amp;</span> Monikha</div>
+  <nav class="nav">
+    <a href="#ceremonies">Ceremonies</a>
+    <a href="#venue">Venue</a>
+    <a href="#gallery">Moments</a>
+    <a href="#rsvp">RSVP</a>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero panel" data-screen-label="Hero">
+  <div class="panel-bg"></div>
+  <div class="panel-scrim scrim-hero"></div>
+  <div class="wrap">
+    <div class="hero-meta fade-up">The wedding of</div>
+    <h1 class="hero-names fade-up">Rajesh<span class="r2"><span class="amp">&amp;</span> Monikha</span></h1>
+    <div class="hero-foot fade-up">
+      <div class="cell">
+        <div class="k">The Days</div>
+        <div class="v">4 &amp; 5 July<br /><small>Saturday &amp; Sunday, 2026</small></div>
+      </div>
+      <div class="cell">
+        <div class="k">The Place</div>
+        <div class="v">Chidambaram<br /><small>Tamil Nadu, India</small></div>
+      </div>
+      <div class="cell">
+        <div class="k">The Occasion</div>
+        <div class="v">Two ceremonies<br /><small>One celebration</small></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue"><span class="stem"></span>Scroll</div>
+</section>
+
+<!-- ===== COUNTDOWN ===== -->
+<div class="countdown">
+  <div class="wrap countdown-inner">
+    <div class="countdown-label">Counting down to the celebration</div>
+    <div class="countdown-blocks" id="cd">
+      <div class="cb"><div class="n" id="cd-d">—</div><div class="l">Days</div></div>
+      <div class="cb"><div class="n" id="cd-h">—</div><div class="l">Hours</div></div>
+      <div class="cb"><div class="n" id="cd-m">—</div><div class="l">Minutes</div></div>
+      <div class="cb"><div class="n" id="cd-s">—</div><div class="l">Seconds</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CEREMONIES ===== -->
+<section class="ceremonies panel" id="ceremonies" data-screen-label="Ceremonies">
+  <div class="panel-bg fixed"></div>
+  <div class="panel-scrim scrim-dark"></div>
+  <div class="wrap">
+    <div class="section-head fade-up">
+      <div class="tag">01 &nbsp; The Ceremonies</div>
+      <h2>Two days. Two traditions. <em>One yes.</em></h2>
+    </div>
+
+    <div class="events">
+      <article class="event fade-up">
+        <div class="event-num">01 / 02</div>
+        <div class="event-date">Saturday · 4 July 2026</div>
+        <h3 class="event-name"><em>Christian</em> Wedding</h3>
+        <div class="event-sub">Followed by a reception in the evening.</div>
+        <div class="schedule">
+          <div class="sched-row">
+            <div class="t">3:00 PM</div>
+            <div class="d">Church Ceremony<br /><small>Until 4:30 PM</small></div>
+          </div>
+          <div class="sched-row">
+            <div class="t">6:00 PM</div>
+            <div class="d">Reception &amp; Dinner<br /><small>Sri Krishna Grand Mahal</small></div>
+          </div>
+        </div>
+        <button class="cal-btn" data-cal="day1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>
+          Add to calendar
+        </button>
+      </article>
+
+      <article class="event fade-up">
+        <div class="event-num">02 / 02</div>
+        <div class="event-date">Sunday · 5 July 2026</div>
+        <h3 class="event-name"><em>Hindu</em> Wedding</h3>
+        <div class="event-sub">A morning of rituals, music, and feasting.</div>
+        <div class="schedule">
+          <div class="sched-row">
+            <div class="t">9:30 AM</div>
+            <div class="d">Muhurtham &amp; Rituals<br /><small>Until 12:00 PM</small></div>
+          </div>
+          <div class="sched-row">
+            <div class="t">12:00 PM</div>
+            <div class="d">Lunch<br /><small>Sri Krishna Grand Mahal</small></div>
+          </div>
+        </div>
+        <button class="cal-btn" data-cal="day2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>
+          Add to calendar
+        </button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VENUE ===== -->
+<section class="venue panel" id="venue" data-screen-label="Venue">
+  <div class="panel-bg fixed"></div>
+  <div class="panel-scrim scrim-side"></div>
+  <div class="wrap">
+    <div class="venue-grid">
+      <div class="fade-up">
+        <div class="eyebrow">02 &nbsp; The Venue</div>
+        <h3 class="venue-name">Sri Krishna<br />Grand Mahal</h3>
+        <p class="venue-addr">Cuddalore Bypass Road,<br />Chidambaram,<br />Tamil Nadu, India</p>
+        <a class="venue-cta" href="https://maps.app.goo.gl/BjKH2PNXrD1Hwi1N9" target="_blank" rel="noopener">
+          Open in Maps
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+        </a>
+      </div>
+      <div class="venue-card fade-up" aria-hidden="true">
+        <div class="map-pin">
+          <div class="dotwrap"></div>
+          <div class="label">Chidambaram<strong>Sri Krishna Grand Mahal</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section class="gallery-section" id="gallery" data-screen-label="Moments">
+  <div class="wrap">
+    <div class="section-head fade-up">
+      <div class="tag">03 &nbsp; Moments</div>
+      <h2>A few <em>memories</em> along the way.</h2>
+    </div>
+    <div class="gallery">
+      <div class="cell g1 fade-up"><img src="images/g1.jpg" alt="Rajesh and Monikha" loading="lazy" /></div>
+      <div class="cell g2 fade-up"><img src="images/g2.jpg" alt="" loading="lazy" /></div>
+      <div class="cell g3 fade-up"><img src="images/g3.jpg" alt="" loading="lazy" /></div>
+      <div class="cell g4 fade-up"><img src="images/g4.jpg" alt="" loading="lazy" /></div>
+      <div class="cell g5 fade-up"><img src="images/g5.jpg" alt="" loading="lazy" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RSVP ===== -->
+<section class="rsvp panel" id="rsvp" data-screen-label="RSVP">
+  <div class="panel-bg"></div>
+  <div class="panel-scrim scrim-dark"></div>
+  <div class="wrap">
+    <div class="eyebrow fade-up">04 &nbsp; RSVP</div>
+    <h2 class="fade-up">Will you <em>join us?</em></h2>
+    <p class="fade-up">Your presence is the greatest gift of all. Please let us know you're coming so we can plan a place for you at the table.</p>
+    <a class="rsvp-btn fade-up" id="wa-btn" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4l-2.4-1.1c-.3-.1-.6-.1-.9.1l-1.3 1c-.2.2-.5.2-.8.1-1.7-.8-3.1-2.2-3.9-3.9-.1-.3-.1-.6.1-.8l1-1.3c.2-.3.2-.6.1-.9L8.3 5.2c-.2-.4-.6-.6-1-.5L5 5.4c-.4.1-.7.5-.7.9 0 6.6 5.3 12 12 12 .4 0 .8-.3.9-.7l.7-2.3c.1-.4-.1-.8-.4-.9z"/></svg>
+      RSVP on WhatsApp
+    </a>
+    <div class="rsvp-num fade-up">or call &nbsp;·&nbsp; <a href="tel:+919597275437">+91 95972 75437</a></div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-mono">Rajesh <span class="amp">&amp;</span> Monikha</div>
+    <div class="foot-line">04 + 05 · 07 · 2026 · Chidambaram</div>
+  </div>
+</footer>
+
+<script>
+  // ——— invitation cover open ———
+  const body = document.body;
+  const cover = document.getElementById('cover');
+  const openBtn = document.getElementById('openBtn');
+
+  // reveal cover content
+  requestAnimationFrame(() => requestAnimationFrame(() => body.classList.add('cover-ready')));
+
+  function openInvite() {
+    if (body.classList.contains('opened')) return;
+    body.classList.add('opened');
+    body.classList.remove('gated');
+    try { sessionStorage.setItem('rm_opened', '1'); } catch (e) {}
+    // trigger hero reveal once visible
+    setTimeout(() => {
+      document.querySelectorAll('.hero .fade-up').forEach(el => el.classList.add('in'));
+    }, 450);
+    setTimeout(() => { cover.style.display = 'none'; }, 1400);
+  }
+  openBtn.addEventListener('click', openInvite);
+
+  // keep it open across refreshes within the session
+  try {
+    if (sessionStorage.getItem('rm_opened') === '1') {
+      body.classList.add('opened');
+      body.classList.remove('gated');
+      cover.style.display = 'none';
+      document.querySelectorAll('.hero .fade-up').forEach(el => el.classList.add('in'));
+    }
+  } catch (e) {}
+
+  // ——— top bar shadow on scroll ———
+  const topbar = document.getElementById('topbar');
+  const onScroll = () => topbar.classList.toggle('scrolled', window.scrollY > 8);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // ——— reveal on scroll ———
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+
+  // ——— countdown ———
+  const target = new Date('2026-07-04T15:00:00+05:30').getTime();
+  const $d = document.getElementById('cd-d'), $h = document.getElementById('cd-h'),
+        $m = document.getElementById('cd-m'), $s = document.getElementById('cd-s');
+  const pad = (n) => String(Math.max(0, n)).padStart(2, '0');
+  function tick() {
+    const diff = target - Date.now();
+    if (diff <= 0) { $d.textContent = $h.textContent = $m.textContent = $s.textContent = '00'; return; }
+    $d.textContent = pad(Math.floor(diff / 86400000));
+    $h.textContent = pad(Math.floor((diff % 86400000) / 3600000));
+    $m.textContent = pad(Math.floor((diff % 3600000) / 60000));
+    $s.textContent = pad(Math.floor((diff % 60000) / 1000));
+  }
+  tick(); setInterval(tick, 1000);
+
+  // ——— WhatsApp deep link ———
+  const phone = '919597275437';
+  const msg = encodeURIComponent("Hello! I'd like to RSVP for Rajesh & Monikha's wedding on 4–5 July 2026.\n\nName: \nNumber of guests: \nAttending: Church (Jul 4) / Reception (Jul 4) / Hindu Wedding (Jul 5)");
+  document.getElementById('wa-btn').href = `https://wa.me/${phone}?text=${msg}`;
+
+  // ——— add to calendar (ICS) ———
+  function ics({uid, title, description, location, start, end}) {
+    const fmt = (d) => d.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
+    const bodyTxt = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//R&M Wedding//EN','BEGIN:VEVENT',
+      `UID:${uid}`,`DTSTAMP:${fmt(new Date())}`,`DTSTART:${fmt(start)}`,`DTEND:${fmt(end)}`,
+      `SUMMARY:${title}`,`DESCRIPTION:${description}`,`LOCATION:${location}`,'END:VEVENT','END:VCALENDAR'].join('\r\n');
+    const blob = new Blob([bodyTxt], { type: 'text/calendar;charset=utf-8' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `${title.replace(/\s+/g,'_')}.ics`;
+    document.body.appendChild(a); a.click(); a.remove();
+  }
+  const VENUE = 'Sri Krishna Grand Mahal, Cuddalore Bypass Road, Chidambaram, Tamil Nadu, India';
+  document.querySelectorAll('[data-cal]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (btn.dataset.cal === 'day1') {
+        ics({ uid: 'rm-2026-07-04@wedding', title: 'Rajesh & Monikha — Christian Wedding',
+          description: 'Church ceremony 3:00–4:30 PM. Reception from 6:00 PM at Sri Krishna Grand Mahal.',
+          location: VENUE, start: new Date('2026-07-04T15:00:00+05:30'), end: new Date('2026-07-04T22:00:00+05:30') });
+      } else {
+        ics({ uid: 'rm-2026-07-05@wedding', title: 'Rajesh & Monikha — Hindu Wedding',
+          description: 'Muhurtham & rituals 9:30 AM – 12:00 PM, followed by lunch.',
+          location: VENUE, start: new Date('2026-07-05T09:30:00+05:30'), end: new Date('2026-07-05T14:00:00+05:30') });
+      }
+    });
+  });
+</script>
+</body>
+</html>
