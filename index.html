@@ -42,8 +42,26 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(255,255,255,0.08), transparent 20%);
+    background: radial-gradient(circle at 35% 20%, rgba(255,255,255,0.24), transparent 28%), linear-gradient(180deg, rgba(255,255,255,0.08), transparent 20%);
     pointer-events: none;
+  }
+
+  .envelope-shell::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 58%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.17), rgba(255,255,255,0.03));
+    clip-path: polygon(0 0, 100% 0, 50% 72%);
+    transform-origin: top center;
+    transition: transform 0.8s ease;
+    z-index: 1;
+  }
+
+  .envelope.opened .envelope-shell::after {
+    transform: translateY(-100%) rotateX(12deg);
   }
 
   .envelope-inner {
@@ -53,6 +71,7 @@
     place-items: center;
     padding: 2rem;
     text-align: center;
+    z-index: 2;
   }
   .envelope-inner h1 {
     margin: 0;
@@ -75,6 +94,14 @@
   }
   .envelope-inner button:hover { transform: translateY(-2px); background: rgba(255,255,255,0.14); }
 
+  .envelope-hint {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+  }
+
   .gallery {
     width: 100vw;
     min-height: 100vh;
@@ -88,15 +115,47 @@
     min-height: 100vh;
     width: 100%;
     scroll-snap-align: start;
-    background-size: cover;
-    background-position: center;
+    background-size: contain;
+    background-position: center center;
     background-repeat: no-repeat;
+    background-color: #050505;
   }
   .slide::before {
     content: "";
     position: absolute;
     inset: 0;
     background: linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.4));
+  }
+
+  .slide-action {
+    position: absolute;
+    left: 50%;
+    bottom: 26px;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.2rem;
+    background: rgba(0, 0, 0, 0.48);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 999px;
+    color: #fff;
+    font-size: 0.85rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+  .slide-action:hover {
+    transform: translateX(-50%) translateY(-2px);
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  .slide-action svg {
+    width: 0.85rem;
+    height: 0.85rem;
+    fill: currentColor;
   }
 
   .scroll-indicator {
@@ -139,17 +198,38 @@
   <div class="envelope" id="envelope">
     <div class="envelope-shell">
       <div class="envelope-inner">
-        <h1>Open Invitation</h1>
-        <button id="openBtn" type="button">Open the envelope</button>
+        <h1>Open the invitation</h1>
+        <button id="openBtn" type="button">Lift the flap</button>
+        <div class="envelope-hint">Tap the button to reveal the invitation</div>
       </div>
     </div>
   </div>
 
   <div class="gallery" id="gallery">
-    <section class="slide" style="background-image: url('uploads/Sangeeth Night.svg');"></section>
-    <section class="slide" style="background-image: url('uploads/Church invitation.svg');"></section>
-    <section class="slide" style="background-image: url('uploads/Reception .svg');"></section>
-    <section class="slide" style="background-image: url('uploads/Mugurtham .jpg');"></section>
+    <section class="slide" style="background-image: url('uploads/Sangeeth Night.svg');">
+      <a class="slide-action" href="https://www.google.com/maps/search/?api=1&query=Krish+Garden+Farm+Resorts+Chidambaram" target="_blank" rel="noreferrer noopener">
+        <span>Location</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5C8.4 2.5 5.5 5.4 5.5 9c0 5.3 6 11.8 6.2 12.1.1.1.3.1.4 0 .2-.3 6.2-6.8 6.2-12.1 0-3.6-2.9-6.5-6.5-6.5zm0 9.1c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.6 12 6.6s2.5 1.1 2.5 2.5S13.4 11.6 12 11.6z"/></svg>
+      </a>
+    </section>
+    <section class="slide" style="background-image: url('uploads/Church invitation.svg');">
+      <a class="slide-action" href="https://www.google.com/maps/search/?api=1&query=Sri+Krishna+Grand+Mahal+Chidambaram" target="_blank" rel="noreferrer noopener">
+        <span>Location</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5C8.4 2.5 5.5 5.4 5.5 9c0 5.3 6 11.8 6.2 12.1.1.1.3.1.4 0 .2-.3 6.2-6.8 6.2-12.1 0-3.6-2.9-6.5-6.5-6.5zm0 9.1c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.6 12 6.6s2.5 1.1 2.5 2.5S13.4 11.6 12 11.6z"/></svg>
+      </a>
+    </section>
+    <section class="slide" style="background-image: url('uploads/Reception .svg');">
+      <a class="slide-action" href="https://www.google.com/maps/search/?api=1&query=Sri+Krishna+Grand+Mahal+Chidambaram" target="_blank" rel="noreferrer noopener">
+        <span>Location</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5C8.4 2.5 5.5 5.4 5.5 9c0 5.3 6 11.8 6.2 12.1.1.1.3.1.4 0 .2-.3 6.2-6.8 6.2-12.1 0-3.6-2.9-6.5-6.5-6.5zm0 9.1c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.6 12 6.6s2.5 1.1 2.5 2.5S13.4 11.6 12 11.6z"/></svg>
+      </a>
+    </section>
+    <section class="slide" style="background-image: url('uploads/Mugurtham .jpg');">
+      <a class="slide-action" href="https://www.google.com/maps/search/?api=1&query=Sri+Krishna+Grand+Mahal+Chidambaram" target="_blank" rel="noreferrer noopener">
+        <span>Location</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5C8.4 2.5 5.5 5.4 5.5 9c0 5.3 6 11.8 6.2 12.1.1.1.3.1.4 0 .2-.3 6.2-6.8 6.2-12.1 0-3.6-2.9-6.5-6.5-6.5zm0 9.1c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.6 12 6.6s2.5 1.1 2.5 2.5S13.4 11.6 12 11.6z"/></svg>
+      </a>
+    </section>
   </div>
 
   <div class="scroll-indicator">Scroll</div>
@@ -160,9 +240,10 @@
     const openBtn = document.getElementById('openBtn');
 
     openBtn.addEventListener('click', () => {
+      envelope.classList.add('opened');
       envelope.classList.add('closed');
       body.classList.add('opened');
-      setTimeout(() => envelope.remove(), 700);
+      setTimeout(() => envelope.remove(), 900);
     });
   </script>
 </body>
